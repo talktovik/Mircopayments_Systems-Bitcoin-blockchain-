@@ -1,0 +1,127 @@
+{% load staticfiles%}
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Plateform which provides Students Economic Independency ">
+    <meta name="author" content="Vikas Yadav">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <title>{{request.user}}| {{title.Name}}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'front/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'front/css/business-casual.min.css' %}" rel="stylesheet">
+      <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+  </head>
+
+  <body>
+
+    <h1 class="site-heading text-center text-white d-none d-lg-block">
+      <span class="site-heading-upper text-primary mb-3">{{title.tag}}</span>
+      <span class="site-heading-lower">{{title.Name}}</span>
+    </h1>
+
+<div class="container">
+         <div class="row">
+         <div class="col-lg">        <!--have to create the form for transaction-->
+ <nav class="navbar navbar-light bg-light">
+     <div class="container" style="margin-left:300px; margin-top:20px">
+  <form action="{% url 'starttransaction'%}" method="post" class="form-inline">
+      {% csrf_token %}
+
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input type="text" name="uname" id="uname" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+        <button type="submit" class="btn btn-primary">Request Transaction</button>
+        </div>
+
+  </form>
+         </div>
+
+
+</nav>
+         </div>
+    </div>
+     </div>
+
+
+<!--end point of form -->
+
+    <section class="page-section cta">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <!--table of people-->
+<h2>All the Clients List which are on our site ! Click to send Coins.</h2>
+
+<table>
+  <tr>
+        <th>Username</th>
+        <th>E-mail</th>
+        <th>Coins they have(Testing purpose)</th>
+{%for i in manager %}
+  </tr>
+  <tr>
+      <td>{{i.username}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.vikcoin}}</td>
+  </tr>
+{%endfor%}
+</table>
+<!--table of people-->
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <footer class="footer text-faded text-center py-5">
+      <div class="container">
+        <p class="m-0 small">{{title.vikas}}</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'front/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'front/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  </body>
+
+  <!-- Script to highlight the active date in the hours list -->
+  <script>
+    $('.list-hours li').eq(new Date().getDay()).addClass('today');
+  </script>
+
+</html>
+
+

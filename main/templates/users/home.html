@@ -1,0 +1,54 @@
+{%load staticfiles%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title.Name}}</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href={% static 'signup/fonts/material-icon/css/material-design-iconic-font.min.css' %}"">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'signup/css/style.css' %}">
+</head>
+<body>
+
+    <div class="main">
+
+        <div class="container">
+            <div class="signup-content">
+                <form action = "{%url 'my_register' %}" method="post" id="signup-form" class="signup-form">
+                     {% csrf_token %}
+                    <h2>Tell Us About You ...</h2>
+                    <p class="desc"> Why Batman, Because <span>“We love Batman”</span></p>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="username" id="username" required placeholder=" UserName"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-input" name="email" id="email" required placeholder="Email"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="password1" id="password1" required placeholder="Password"/>
+                        <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="password2" id="password2" required placeholder=" Confirm Password"/>
+                        <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" id="submit" class="form-submit submit" value="Sign up"/>
+                        <a href="/log-in" class="submit-link submit">Log in</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+<div>{{title.vikas}}</div>
+    </div>
+
+    <!-- JS -->
+    <script src="{% static 'signup/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'signup/js/main.js' %}"></script>
+</body>
+</html>

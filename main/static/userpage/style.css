@@ -1,0 +1,16 @@
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #FFE4E1;
+   color: black;
+   text-align: center;
+}
+#myInput {
+   padding: 20px;
+   margin-top: -6px;
+   border: 0;
+   border-radius: 0;
+   background: #f1f1f1;
+  }

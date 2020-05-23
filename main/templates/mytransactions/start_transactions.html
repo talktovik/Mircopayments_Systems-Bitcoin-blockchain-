@@ -1,0 +1,123 @@
+{% load staticfiles%}
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Plateform which provides Students Economic Independency ">
+    <meta name="author" content="Vikas Yadav">
+
+    <title> {{request.user}}| {{title.Name}}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'front/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'front/css/business-casual.min.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <h1 class="site-heading text-center text-white d-none d-lg-block">
+
+      <span class="site-heading-upper text-primary mb-3">{{title.tag}}</span>
+
+      <span class="site-heading-lower">{{title.Name}}</span>
+    </h1>
+
+
+    <section class="page-section cta">
+      <div class="container">
+        <div class="row">
+        <div class="jumbotron">
+  <h1 class="display-4" >Hello, <a style="text-transform:uppercase;color:#808080">{{request.user}}</a></h1>
+  <h1 class="display-4">Coin Balance : <a style="color:#00008B">{{mycoin.vikcoin}}</a></h1>
+  <p class="lead">Just with few clicks you can transact desire coins with <a>{{recievername}}</a> as per your request. Don't worry about Security Concerns becuase
+  this site is running using the applications of Blockchain. Your money is in safe hands. </p>
+  <h3 style="text-align:center">Transaction starts here!</h3>
+  <div class="detailcheck" >
+    <p class="lead" style="text-align:center">Please cross check, Because these things internally going to used in blockchain </p>
+      <div class="row">
+  <div class="col-4">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Your IP Address</a>
+      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Sender Name</a>
+      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Reciever Name</a>
+      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Time Stamp</a>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">{{ip}}</div>
+      <div style="text-transform:uppercase;color:green" class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">{{request.user}}</div>
+      <div style="color:green" class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">{{recievername}}</div>
+      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">{{thetimeanddate}}</div>
+    </div>
+  </div>
+</div>
+  </div>
+              <hr class="my-4">
+            <!--put your coin here-->
+
+
+            <div class="container" style="margin-left:300">
+            <form action="{%url 'confirmation' %}" method="post">
+                {% csrf_token %}
+   <div style="width: 400px;">
+       <p class="my-4" style="text-align:center"> <strong>Put the value which you want to transfer!</strong> </p>
+       <input type="text" name="thereciever" id="thereciever" class="form-control" placeholder="Enter the Username Again" aria-label="Amount (to the nearest dollar)">
+       <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">₿</span>
+  </div>
+  <input type="text" name="amount" id="amount" class="form-control" aria-label="Amount (to the nearest dollar)">
+  <div class="input-group-append">
+    <span class="input-group-text">.00</span>
+  </div>
+           </div>
+
+
+        <button type="submit"  class="btn btn-success">Start TRANSACTION</button>
+   </div>
+        </form>
+                </div>
+            <!--put your coin here-->
+
+  <hr class="my-4">
+  <p style="text-align:center">You can abort the transaction on this phase. Only you have to go back <strong>instead of clicking proceed !</strong></p>
+  <div class="container" style="margin-left:300px">
+            <a class="btn btn-primary btn-lg" href="/working" role="button">Learn more</a>
+</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <footer class="footer text-faded text-center py-5">
+      <div class="container">
+        <p class="m-0 small">{{title.vikas}}</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'front/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'front/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  </body>
+
+  <!-- Script to highlight the active date in the hours list -->
+  <script>
+    $('.list-hours li').eq(new Date().getDay()).addClass('today');
+  </script>
+
+</html>

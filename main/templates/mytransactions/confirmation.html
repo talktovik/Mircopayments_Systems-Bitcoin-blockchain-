@@ -1,0 +1,127 @@
+{% load staticfiles%}
+
+<html lang="en">
+
+  <head>
+
+    <style>
+        table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Plateform which provides Students Economic Independency ">
+    <meta name="author" content="Vikas Yadav">
+
+    <title>{{request.user}}| {{title.Name}}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'front/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'front/css/business-casual.min.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <h1 class="site-heading text-center text-white d-none d-lg-block">
+
+      <span class="site-heading-upper text-primary mb-3">{{title.tag}}</span>
+
+      <span class="site-heading-lower">{{title.Name}}</span>
+    </h1>
+
+    <!-- Navigation -->
+
+
+    <section class="page-section cta">
+      <div class="container">
+        <div class="row">
+        <div class="jumbotron">
+             <h1 class="display-4"> Dear <a style="color:green" >{{request.user}}</a>, We Have your Transaction :)</h1>
+  <p class="lead">We just stored your transaction in our database. Since we have to mine the block for the blockchain,
+  it will take some time depend on the congestion and computing power</p>
+  <p class="lead"> We assure you about the Security, have a look over the attributes and relax.  </p>
+            <!--table starts here-->
+            <div>
+                <table>
+  <tr>
+    <th>Attributes</th>
+    <th>Values</th>
+  </tr>
+  <tr>
+    <td>TRANSACTION ID</td>
+    <td>{{rand}}</td>
+  </tr>
+  <tr>
+    <td>SENDER</td>
+    <td>{{request.user}}</td>
+  </tr>
+  <tr>
+    <td>RECIEVER</td>
+    <td>{{thereciever}}</td>
+  </tr>
+  <tr>
+    <td>CURRENT IP</td>
+    <td>{{ip}}</td>
+  </tr>
+  <tr>
+    <td>TIMESTAMP</td>
+    <td>{{thetimeanddate}}</td>
+  </tr>
+  <tr>
+    <td>TRANSACTION AMOUNT</td>
+    <td>{{usertransferamount}}</td>
+  </tr>
+</table>
+
+            </div>
+            <!--table ends here-->
+  <hr class="my-4">
+  <p>Feel free to contact us from the details on the contact page</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="/mine_block" role="button">Pour in chain </a>
+  </p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <footer class="footer text-faded text-center py-5">
+      <div class="container">
+        <p class="m-0 small">{{title.vikas}}</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'front/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'front/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  </body>
+
+  <!-- Script to highlight the active date in the hours list -->
+  <script>
+    $('.list-hours li').eq(new Date().getDay()).addClass('today');
+  </script>
+
+</html>

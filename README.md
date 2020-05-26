@@ -1,2 +1,4 @@
-# micropaymentssystems_blockchain_django
-# micropaymentssystems_blockchain_django
+See the video at my site.
+I will update the the video link here also.
+
+site link: http://talktovik.github.io/
